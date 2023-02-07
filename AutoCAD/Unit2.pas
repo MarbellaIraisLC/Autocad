@@ -1,0 +1,77 @@
+unit Unit2;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, jpeg, ExtCtrls, StdCtrls, ComCtrls, Math;
+
+type
+  TForm2 = class(TForm)
+    FondoColor: TImage;
+    shrojo: TShape;
+    shVerde: TShape;
+    shAzul: TShape;
+    TrRojo: TTrackBar;
+    TrVerde: TTrackBar;
+    TrAzul: TTrackBar;
+    shcolor: TShape;
+    Button1: TButton;
+    Button2: TButton;
+    procedure TrAzulChange(Sender: TObject);
+    procedure TrVerdeChange(Sender: TObject);
+    procedure TrRojoChange(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+Uses Unit1;
+//Botones Aceptar---------------------------------------------------------------
+procedure TForm2.Button1Click(Sender: TObject);
+begin
+form1.TxtRojo.Text:=inttostr(trrojo.Position);
+form1.Txtverde.Text:=inttostr(trverde.Position);
+form1.Txtazul.Text:=inttostr(trazul.Position);
+form2.Close;
+end;
+
+procedure TForm2.Button2Click(Sender: TObject);
+begin
+form1.txtrojor.Text:=inttostr(trrojo.Position);
+form1.txtverder.Text:=inttostr(trverde.Position);
+form1.txtazulr.Text:=inttostr(trazul.Position);
+form2.Close;
+end;
+//Fin Botones Aceptar-----------------------------------------------------------
+
+//Inicio TrackBar---------------------------------------------------------------
+procedure TForm2.TrRojoChange(Sender: TObject);
+begin
+   shrojo.Brush.Color:=rgb(TrRojo.Position,0,0);
+   shcolor.Brush.Color:=rgb(trrojo.Position, trverde.Position, trazul.Position);
+end;
+
+procedure TForm2.TrVerdeChange(Sender: TObject);
+begin
+   shverde.Brush.Color:=rgb(0,Trverde.Position,0);
+   shcolor.Brush.Color:=rgb(trrojo.Position, trverde.Position, trazul.Position);
+end;
+
+procedure TForm2.TrAzulChange(Sender: TObject);
+begin
+   shazul.Brush.Color:=rgb(0,0,trazul.Position);
+   shcolor.Brush.Color:=rgb(trrojo.Position, trverde.Position, trazul.Position);
+end;
+//Fin TrackBar------------------------------------------------------------------
+
+end.

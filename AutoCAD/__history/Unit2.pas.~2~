@@ -1,0 +1,35 @@
+unit Unit2;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, jpeg, ExtCtrls, StdCtrls, ComCtrls;
+
+type
+  TForm2 = class(TForm)
+    FondoColor: TImage;
+    shrojo: TShape;
+    shVerde: TShape;
+    shAzul: TShape;
+    TrRojo: TTrackBar;
+    TrVerde: TTrackBar;
+    TrAzul: TTrackBar;
+    shcolor: TShape;
+    Button1: TButton;
+    Button2: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+Uses Unit1;
+
+end.
